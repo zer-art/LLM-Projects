@@ -3,7 +3,7 @@ class GrammarTutor {
     constructor() {
         this.currentView = 'landing';
         this.messages = [];
-        this.apiUrl = "http://localhost:8000/api/grammar"; // Change if backend is hosted elsewhere
+        this.apiUrl = "http://localhost:8000/api/grammar";
         this.init();
     }
 

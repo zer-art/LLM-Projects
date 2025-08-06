@@ -1,0 +1,11 @@
+[project]
+name = "grammer"
+version = "0.1.0"
+description = "A grammar checker using Google Gemini and LangChain"
+authors = ["Pawan Parida <13zero7two005@gmail.com>"]
+dependencies = [
+    "langchain",
+    "langchain-google-genai",
+    "python-dotenv"
+]
+requires-python = ">=3.8"

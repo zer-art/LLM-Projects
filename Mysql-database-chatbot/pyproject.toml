@@ -1,0 +1,18 @@
+[project]
+name = "MYSQL-Database chatbot"
+version = "0.1.0"
+description = "A Streamlit chatbot application that interacts with a SQL database using LangChain."
+authors = [
+    { name="Pawan Parida", email="13zero7two005@gmail.com" }
+]
+dependencies = [
+    "streamlit",
+    "python-dotenv",
+    "langchain",
+    "langchain-community",
+    "langchain-huggingface",
+    "langchain-google-genai",
+    "sentence-transformers",
+    "lxml"
+]
+requires-python = ">=3.10"

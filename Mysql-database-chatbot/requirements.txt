@@ -1,0 +1,12 @@
+streamlit
+streamlit-chat
+langchain
+langchain-google-genai
+langchain-huggingface
+langchain-experimental
+python-dotenv
+PyMySQL
+SQLAlchemy
+sentence-transformers
+chromadb
+ipykernel

@@ -1,5 +1,7 @@
 # LLM-Projects
 
+<img src="https://imgs.search.brave.com/gfqte3HT4C1YJT0AtKRexIPRTIsgvGmzEPoZj4D4LS4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG5p/Lmljb25zY291dC5j/b20vaWxsdXN0cmF0/aW9uL3ByZW1pdW0v/dGh1bWIvYWktcm9i/b3QtZG9pbmctdHJh/aW5pbmctaWxsdXN0/cmF0aW9uLWRvd25s/b2FkLWluLXN2Zy1w/bmctZ2lmLWZpbGUt/Zm9ybWF0cy0tZWR1/Y2F0aW9uYWwtYW5k/LWxhcmdlLWxhbmd1/YWdlLW1vZGVsLXBh/Y2stc2NpZW5jZS10/ZWNobm9sb2d5LWls/bHVzdHJhdGlvbnMt/MTIzNDYxNTcucG5n" alt = "LLM img">
+
 This repository contains a collection of projects leveraging Large Language Models (LLMs) for various applications. Each subdirectory is a standalone project with its own codebase, dependencies, and documentation. Below is an overview of each project:
 
 ## Ai-Grammer-Tutor

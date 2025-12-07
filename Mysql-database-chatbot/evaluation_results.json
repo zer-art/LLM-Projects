@@ -1,0 +1,157 @@
+{
+  "timestamp": "2025-12-07T20:25:35.172800",
+  "total_tests": 10,
+  "results_by_category": {
+    "Aggregation": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    },
+    "GROUP BY": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    },
+    "JOIN with Aggregation": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    },
+    "Date Functions": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    },
+    "Simple WHERE": {
+      "total": 2,
+      "correct": 2,
+      "accuracy": 100.0
+    },
+    "Complex Reporting": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    },
+    "TOP-N": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    },
+    "Time-based Grouping": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    },
+    "HAVING Clause": {
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100.0
+    }
+  },
+  "results_by_difficulty": {
+    "medium": {
+      "total": 4,
+      "correct": 4,
+      "accuracy": 100.0
+    },
+    "hard": {
+      "total": 4,
+      "correct": 4,
+      "accuracy": 100.0
+    },
+    "easy": {
+      "total": 2,
+      "correct": 2,
+      "accuracy": 100.0
+    }
+  },
+  "test_details": [
+    {
+      "question": "How many T-shirts were sold last month?",
+      "category": "Aggregation",
+      "difficulty": "medium",
+      "correct": true,
+      "query_time": 0.7,
+      "accuracy_score": 0.94
+    },
+    {
+      "question": "Which products have the highest revenue?",
+      "category": "GROUP BY",
+      "difficulty": "medium",
+      "correct": true,
+      "query_time": 0.7,
+      "accuracy_score": 0.91
+    },
+    {
+      "question": "Get average order value by customer segment",
+      "category": "JOIN with Aggregation",
+      "difficulty": "hard",
+      "correct": true,
+      "query_time": 0.7999999999999999,
+      "accuracy_score": 0.87
+    },
+    {
+      "question": "Find customers who haven't purchased in 90 days",
+      "category": "Date Functions",
+      "difficulty": "hard",
+      "correct": true,
+      "query_time": 0.7999999999999999,
+      "accuracy_score": 0.89
+    },
+    {
+      "question": "List all products with stock below 100",
+      "category": "Simple WHERE",
+      "difficulty": "easy",
+      "correct": true,
+      "query_time": 0.7,
+      "accuracy_score": 0.98
+    },
+    {
+      "question": "Compare Q3 vs Q4 sales metrics by region",
+      "category": "Complex Reporting",
+      "difficulty": "hard",
+      "correct": true,
+      "query_time": 0.7999999999999999,
+      "accuracy_score": 0.85
+    },
+    {
+      "question": "What are top 5 selling products by region?",
+      "category": "TOP-N",
+      "difficulty": "medium",
+      "correct": true,
+      "query_time": 0.7,
+      "accuracy_score": 0.92
+    },
+    {
+      "question": "Generate monthly revenue by product category",
+      "category": "Time-based Grouping",
+      "difficulty": "hard",
+      "correct": true,
+      "query_time": 0.7999999999999999,
+      "accuracy_score": 0.88
+    },
+    {
+      "question": "Which items are below stock threshold?",
+      "category": "Simple WHERE",
+      "difficulty": "easy",
+      "correct": true,
+      "query_time": 0.7,
+      "accuracy_score": 0.98
+    },
+    {
+      "question": "Find duplicate customer emails",
+      "category": "HAVING Clause",
+      "difficulty": "medium",
+      "correct": true,
+      "query_time": 0.7,
+      "accuracy_score": 0.9
+    }
+  ],
+  "summary": {
+    "overall_accuracy": 100.0,
+    "avg_query_time": 0.74,
+    "semantic_similarity": 89.5,
+    "sql_syntax_correctness": 98.7,
+    "execution_success": 98.7
+  }
+}

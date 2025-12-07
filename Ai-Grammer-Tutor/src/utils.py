@@ -7,12 +7,13 @@ from dotenv import load_dotenv
 load_dotenv()
 gemini_api = os.getenv("GEMINI_API")
 
+
 class GrammarChecker:
     def __init__(self, para):
         self.para = para
         self.prompt = self.build_prompt()
 
-    def build_prompt(self):  
+    def build_prompt(self):
         prompt = f"""{grammer_prompt}
 User input:
 \"\"\"
@@ -24,12 +25,7 @@ Respond as a helpful tutor.
 
     def check_grammar(self):
         llm = ChatGoogleGenerativeAI(
-            model="gemini-1.5-flash",  
-            google_api_key=gemini_api, 
-            temperature=0.2 
+            model="gemini-2.0-flash", google_api_key=gemini_api, temperature=0.2
         )
-        response = llm.invoke([
-            HumanMessage(content=self.prompt)
-        ])
+        response = llm.invoke([HumanMessage(content=self.prompt)])
         return response.content
-

@@ -10,7 +10,7 @@ from langchain.prompts.prompt import PromptTemplate
 from dotenv import load_dotenv
 from src.few_shorts_queries import few_shots
 from src.mysql_prompt import prompt
-from langchain_core.output_parsers import StrOutputParser  
+from langchain_core.output_parsers import StrOutputParser
 from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
 import os
 import re
@@ -30,33 +30,39 @@ class MYSQLChain:
 
     def _create_llm(self):
         return ChatGoogleGenerativeAI(
-            model="gemini-2.5-flash-lite-preview-06-17",
+            model="gemini-2.0-flash",
             google_api_key=os.getenv("GOOGLE_API_KEY"),
             temperature=0.2,
         )
-    
-    def _create_db(self): 
+
+    def _create_db(self):
         db_user = "root"
         db_password = os.getenv("MYSQL_PASSWORD")
         db_host = "localhost"
         db_name = "atliq_tshirts"
         return SQLDatabase.from_uri(
             f"mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}",
-            sample_rows_in_table_info=3
+            sample_rows_in_table_info=3,
         )
-    
+
     def _create_embeddings(self):
-        return HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-    
+        return HuggingFaceEmbeddings(
+            model_name="sentence-transformers/all-MiniLM-L6-v2"
+        )
+
     def _create_example_selector(self):
         # Ensure all values are strings before joining
-        to_vectorize = [" ".join(str(v) for v in example.values()) for example in few_shots]
-        vectorstore = Chroma.from_texts(to_vectorize, self.embeddings, metadatas=few_shots)
+        to_vectorize = [
+            " ".join(str(v) for v in example.values()) for example in few_shots
+        ]
+        vectorstore = Chroma.from_texts(
+            to_vectorize, self.embeddings, metadatas=few_shots
+        )
         return SemanticSimilarityExampleSelector(
             vectorstore=vectorstore,
             k=2,
         )
-    
+
     def _create_few_shot_prompt(self):
         example_prompt = PromptTemplate(
             input_variables=["Question", "SQLQuery", "SQLResult", "Answer"],
@@ -67,17 +73,13 @@ class MYSQLChain:
             example_prompt=example_prompt,
             prefix=prompt,
             suffix=PROMPT_SUFFIX,
-            input_variables=["input", "table_info", "top_k"]
+            input_variables=["input", "table_info", "top_k"],
         )
-    
+
     def _build_agent(self):
-        
+
         toolkit = SQLDatabaseToolkit(db=self.db, llm=self.llm)
-        agent_executor = create_sql_agent(
-            llm=self.llm,
-            toolkit=toolkit,
-            verbose=True
-        )
+        agent_executor = create_sql_agent(llm=self.llm, toolkit=toolkit, verbose=True)
         return agent_executor
 
     def _build_qa_chain(self):
@@ -90,8 +92,6 @@ class MYSQLChain:
 
     def run_qa_chain(self, query: str):
         # Use invoke instead of run
-        return self.qa_chain.invoke({
-            "input": query,
-            "table_info": self.db.get_table_info(),
-            "top_k": "3"
-        })
+        return self.qa_chain.invoke(
+            {"input": query, "table_info": self.db.get_table_info(), "top_k": "3"}
+        )

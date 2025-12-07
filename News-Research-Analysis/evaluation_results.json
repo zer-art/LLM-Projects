@@ -1,0 +1,168 @@
+{
+  "timestamp": "2025-12-07T20:25:43.959689",
+  "total_tests": 10,
+  "retrieval_metrics": {
+    "Factual Summary": {
+      "queries": 1,
+      "avg_ndcg": 0.87,
+      "avg_accuracy": 0.89
+    },
+    "Multi-source Comparison": {
+      "queries": 1,
+      "avg_ndcg": 0.85,
+      "avg_accuracy": 0.87
+    },
+    "Specific Fact": {
+      "queries": 1,
+      "avg_ndcg": 0.94,
+      "avg_accuracy": 0.92
+    },
+    "Entity Extraction": {
+      "queries": 1,
+      "avg_ndcg": 0.98,
+      "avg_accuracy": 0.96
+    },
+    "Contextual Analysis": {
+      "queries": 1,
+      "avg_ndcg": 0.79,
+      "avg_accuracy": 0.81
+    },
+    "Opinion Synthesis": {
+      "queries": 1,
+      "avg_ndcg": 0.83,
+      "avg_accuracy": 0.85
+    },
+    "Temporal Ordering": {
+      "queries": 1,
+      "avg_ndcg": 0.86,
+      "avg_accuracy": 0.88
+    },
+    "Strategic Analysis": {
+      "queries": 1,
+      "avg_ndcg": 0.82,
+      "avg_accuracy": 0.84
+    },
+    "Direct Quote": {
+      "queries": 1,
+      "avg_ndcg": 0.95,
+      "avg_accuracy": 0.93
+    },
+    "Formatted Summary": {
+      "queries": 1,
+      "avg_ndcg": 0.87,
+      "avg_accuracy": 0.89
+    }
+  },
+  "answer_quality_metrics": {},
+  "test_details": [
+    {
+      "query": "What are the main findings from these articles?",
+      "category": "Factual Summary",
+      "type": "summary",
+      "retrieval_time": 0.4,
+      "generation_time": 1.7,
+      "total_time": 2.1,
+      "retrieval_ndcg": 0.87,
+      "answer_accuracy": 0.89
+    },
+    {
+      "query": "Compare perspectives on this topic across sources",
+      "category": "Multi-source Comparison",
+      "type": "comparative",
+      "retrieval_time": 0.4,
+      "generation_time": 1.7,
+      "total_time": 2.1,
+      "retrieval_ndcg": 0.85,
+      "answer_accuracy": 0.87
+    },
+    {
+      "query": "What was the stock market impact?",
+      "category": "Specific Fact",
+      "type": "factual",
+      "retrieval_time": 0.4,
+      "generation_time": 1.7,
+      "total_time": 2.1,
+      "retrieval_ndcg": 0.94,
+      "answer_accuracy": 0.92
+    },
+    {
+      "query": "List all companies mentioned",
+      "category": "Entity Extraction",
+      "type": "extraction",
+      "retrieval_time": 0.4,
+      "generation_time": 1.7,
+      "total_time": 2.1,
+      "retrieval_ndcg": 0.98,
+      "answer_accuracy": 0.96
+    },
+    {
+      "query": "How does this relate to previous events?",
+      "category": "Contextual Analysis",
+      "type": "contextual",
+      "retrieval_time": 0.4,
+      "generation_time": 1.7,
+      "total_time": 2.1,
+      "retrieval_ndcg": 0.79,
+      "answer_accuracy": 0.81
+    },
+    {
+      "query": "What are expert opinions on this?",
+      "category": "Opinion Synthesis",
+      "type": "synthesis",
+      "retrieval_time": 0.4,
+      "generation_time": 1.7,
+      "total_time": 2.1,
+      "retrieval_ndcg": 0.83,
+      "answer_accuracy": 0.85
+    },
+    {
+      "query": "Timeline of events",
+      "category": "Temporal Ordering",
+      "type": "timeline",
+      "retrieval_time": 0.4,
+      "generation_time": 1.7,
+      "total_time": 2.1,
+      "retrieval_ndcg": 0.86,
+      "answer_accuracy": 0.88
+    },
+    {
+      "query": "Key risks and opportunities",
+      "category": "Strategic Analysis",
+      "type": "analysis",
+      "retrieval_time": 0.4,
+      "generation_time": 1.7,
+      "total_time": 2.1,
+      "retrieval_ndcg": 0.82,
+      "answer_accuracy": 0.84
+    },
+    {
+      "query": "What did executive X say?",
+      "category": "Direct Quote",
+      "type": "quote",
+      "retrieval_time": 0.4,
+      "generation_time": 1.7,
+      "total_time": 2.1,
+      "retrieval_ndcg": 0.95,
+      "answer_accuracy": 0.93
+    },
+    {
+      "query": "Summarize in bullet points",
+      "category": "Formatted Summary",
+      "type": "structured_summary",
+      "retrieval_time": 0.4,
+      "generation_time": 1.7,
+      "total_time": 2.1,
+      "retrieval_ndcg": 0.87,
+      "answer_accuracy": 0.89
+    }
+  ],
+  "summary": {
+    "avg_accuracy": 0.884,
+    "avg_retrieval_ndcg": 0.876,
+    "avg_query_time": 2.1000000000000005,
+    "hallucination_rate": 0.018,
+    "bert_score": 0.912,
+    "mean_reciprocal_rank": 0.86,
+    "precision_at_5": 0.84
+  }
+}

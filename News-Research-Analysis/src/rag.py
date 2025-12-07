@@ -9,6 +9,7 @@ import os
 
 load_dotenv()
 
+
 def load_rag_chain(urls: str):
     url_list = [u.strip() for u in urls.split(",") if u.strip()]
     if not url_list:
@@ -19,7 +20,9 @@ def load_rag_chain(urls: str):
         raise ValueError("No documents loaded from the provided URLs.")
     embd = kb.model()
     vectorstore = kb.vectorstore(docs, embd)
-    retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 2})
+    retriever = vectorstore.as_retriever(
+        search_type="similarity", search_kwargs={"k": 2}
+    )
 
     prompt = ChatPromptTemplate.from_messages(
         [
@@ -30,12 +33,12 @@ def load_rag_chain(urls: str):
 
     gemini_api = os.getenv("GEMINI_API_KEY")
     gemini = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash",
+        model="gemini-2.0-flash",
         temperature=0.2,
         max_output_tokens=1024,
         top_p=0.95,
         top_k=40,
-        google_api_key=gemini_api
+        google_api_key=gemini_api,
     )
 
     qa_chain = create_stuff_documents_chain(llm=gemini, prompt=prompt)

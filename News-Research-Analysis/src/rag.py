@@ -1,11 +1,12 @@
 from src.utils import Knowledgebase
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.prompts import ChatPromptTemplate
-from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain.chains import create_retrieval_chain
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
 from src.prompt import system_prompt
 from dotenv import load_dotenv
 import os
+from operator import itemgetter
 
 load_dotenv()
 
@@ -41,6 +42,17 @@ def load_rag_chain(urls: str):
         google_api_key=gemini_api,
     )
 
-    qa_chain = create_stuff_documents_chain(llm=gemini, prompt=prompt)
-    rag = create_retrieval_chain(retriever, qa_chain)
-    return rag
+    def format_docs(docs):
+        return "\n\n".join(doc.page_content for doc in docs)
+
+    rag_chain = (
+        {
+            "context": itemgetter("input") | retriever | format_docs,
+            "input": itemgetter("input"),
+        }
+        | prompt
+        | gemini
+        | StrOutputParser()
+    )
+    
+    return rag_chain

@@ -184,6 +184,9 @@ def run_evaluation():
         # Measure response time and get result
         response_time, response = measure_response_time(test["input"])
         results["response_times"].append(response_time)
+        
+        # Avoid rate limits
+        time.sleep(4)
 
         # Evaluate detection accuracy
         is_correct = evaluate_correction_detection(response, test["has_error"])

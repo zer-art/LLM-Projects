@@ -4,28 +4,26 @@ An AI-powered grammar correction system using Google Gemini 2.0 Flash and LangCh
 
 ---
 
-## 📊 Performance Metrics
+
+## 🧪 Internal Test Results
+
+> [!NOTE]
+> These metrics are based on an internal test set of **15 examples** effectively acting as unit tests. They do not represent performance on large-scale benchmarks.
 
 | Metric | Value |
 |--------|-------|
-| **Grammar Detection Accuracy** | 92.3% |
-| **Average Response Time** | 1.8s |
+| **Test Set Size** | 15 examples |
+| **Pass Rate** | 92% (14/15) |
+| **Average Response Time** | ~1.8s |
 | **Response Quality Score** | 87/100 |
-| **API Uptime** | 99.5% |
-| **Test Coverage** | 15 test cases (10 error types) |
 
-### Category-Specific Accuracy
-- **Subject-Verb Agreement**: 95%
-- **Verb Tense Errors**: 90%
-- **Pronoun Case**: 88%
-- **Homophone Confusion**: 93%
-- **Correct Sentence Recognition**: 100%
+*Note: "Accuracy" here refers to the model's ability to trigger the correct response logic on this specific micro-dataset.*
 
 ---
 
 ## 🚀 Key Features
 
-- **High-Accuracy Detection:** Achieved 92.3% accuracy across 10+ grammar error categories
+- **Grammar Correction**: Detects and explains basic grammar errors.
 - **Sub-2s Response Time:** Average 1.8s latency for real-time feedback
 - **Educational Feedback:** Provides rule explanations, corrections, and examples in each response
 - **RESTful API Architecture:** FastAPI backend with CORS-enabled endpoints
@@ -98,10 +96,10 @@ Open `frontend/index.html` in your browser.
 
 ## 📈 Impact & Results
 
-- **Processed 500+ test queries** with 92.3% accuracy in grammar detection
+- **Processed internal test queries** for validation
 - **Reduced average correction time** from manual checking to 1.8s automated response
-- **100% accuracy** in identifying correct sentences (no false positives)
-- **Comprehensive error coverage** across 10 major grammar categories
+- **Validates correct sentences** (no false positives in test set)
+- **Error coverage** across 10 major grammar categories
 - **Production-ready API** with proper error handling and CORS configuration
 
 ---
@@ -133,9 +131,27 @@ grammer/
 5. **Real-time Feedback:** Results displayed in chat interface within ~1.8s
 
 **Key Technical Decisions:**
-- **Temperature 0.2:** Ensures consistent, focused grammar corrections
+- **Temperature 0.2**: Ensures consistent, focused grammar corrections
 - **Structured Prompting:** Custom prompt template guides AI to provide explanations + examples
 - **FastAPI:** Async architecture for handling concurrent requests efficiently
+
+---
+
+## ⚖️ Evaluation Methodology & Limitations
+
+To address referencing of performance metrics:
+
+1.  **Benchmark Used**: There is **no external benchmark** (like CoLA or BEA-2019) used for this project. The "92.3%" figure comes from an internal script (`evaluate_metrics.py`) running on **15 specific test sentences**.
+2.  **Detection Method**: Evaluation is performed by heuristic keyword matching on the LLM's output (checking for words like "mistake" or "correct").
+3.  **Error Types Covered**: The internal test set includes:
+    - Subject-Verb Agreement
+    - Verb Tense
+    - Pronoun Case
+    - Homophones
+    - Modal Verbs
+    - Apostrophe Misuse
+
+This project serves as a demonstration of building a Grammar Tutor application, not a research paper on SOTA grammar correction performance.
 
 ---
 

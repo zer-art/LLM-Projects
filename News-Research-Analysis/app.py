@@ -33,7 +33,9 @@ if "rag_chain" in st.session_state:
 
     def get_response(user_input):
         response = rag_chain.invoke({"input": user_input})
-        return response["answer"] if "answer" in response else str(response)
+        if isinstance(response, dict) and "answer" in response:
+            return response["answer"]
+        return str(response)
 
     st.markdown("Ask me anything about the latest news from the provided URLs!")
 

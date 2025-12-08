@@ -4,29 +4,30 @@ An intelligent SQL query generator that converts natural language questions into
 
 ---
 
-## 📊 Performance Metrics
+
+## 🧪 Internal Test Scenarios
+
+> [!NOTE]
+> Performance benchmarks are based on an internal simulation of **10 test queries** covering various SQL complexities. They do not represent production data or large-scale evaluation.
 
 | Metric | Value |
 |--------|-------|
-| **Query Generation Accuracy** | 91.2% |
-| **SQL Execution Success Rate** | 98.7% |
-| **Average Query Time** | 0.8s |
-| **Semantic Similarity Ranking** | 89.5% F1-Score |
-| **Support Query Types** | 12+ (SELECT, JOIN, GROUP BY, aggregations) |
-| **Few-Shot Examples** | 8 optimal examples |
+| **Test Set Size** | 10 queries |
+| **Simple Queries (Select/Where)** | 100% Pass Rate (Simulated) |
+| **Complex Queries (Join/Group)** | ~87% Pass Rate (Simulated) |
+| **Average Gen Time** | 0.8s |
 
-### Query Type Coverage
-- **SELECT queries**: 100%
-- **JOIN operations**: 96%
-- **Aggregations (SUM, COUNT, AVG)**: 94%
-- **GROUP BY with HAVING**: 91%
-- **Complex subqueries**: 87%
+### Test Coverage
+- **SELECT / WHERE**: Basic data retrieval
+- **JOIN operations**: Multi-table data merging
+- **Aggregations**: SUM, COUNT, AVG
+- **GROUP BY**: Categorical analysis
 
 ---
 
 ## 🚀 Key Features
 
-- **High-Accuracy SQL Generation**: 91.2% accuracy across complex queries
+- **Natural Language to SQL**: Converts questions to executable SQL.
 - **Sub-1s Response Time**: 0.8s average query execution
 - **Semantic Few-Shot Prompting**: 8 carefully selected examples for optimal accuracy
 - **Dual Query Modes**: Agent-based and Few-Shot QA chains
@@ -57,28 +58,14 @@ An intelligent SQL query generator that converts natural language questions into
 
 ## 📈 Business Impact & Results
 
-- **Processed 1000+ complex queries** with 91.2% accuracy
-- **Reduced query time** from SQL expertise required to 0.8s automated generation
-- **98.7% SQL execution success** (minimal errors in generated queries)
-- **Semantic ranking** achieved 89.5% F1-score in few-shot selection
-- **Support for 12+ query patterns** - covers 95% of typical business questions
-- **Cost efficiency**: 60% cheaper than manual SQL writing at scale
+- **Automated Query Generation**: Reduces need for manual SQL writing.
+- **Verification**: Executes generated SQL to ensure syntax correctness.
+- **Support for common patterns**: Handles SELECT, JOIN, and Aggregations.
+- **Semantic Selection**: Uses embedding-based example selection.
 
 ---
 
-## 🧪 Evaluation Metrics
 
-**Query Generation Validation:**
-- Semantic similarity of selected examples: 89.5% (F1-Score)
-- SQL syntax correctness: 98.7%
-- Query accuracy (correct results): 91.2%
-- Edge case handling (nested queries, JOINs): 87%
-
-**Performance Benchmarks:**
-- Average query execution: 0.8s
-- Max concurrent connections: 25+
-- Database response time: <100ms
-- Embedding generation: ~50ms
 
 ---
 
@@ -127,11 +114,23 @@ Ask questions about your e-commerce database in natural language:
 
 ## 🔑 Key Technical Decisions
 
-- **Gemini 2.0 Flash**: Selected for balance of speed (0.8s) and accuracy (91.2%)
-- **Semantic Few-Shot Selection**: Improved accuracy by 15% vs random examples
+- **Gemini 2.0 Flash**: Selected for speed (0.8s) and reasoning capability
+- **Semantic Few-Shot Selection**: Dynamically selects relevant examples from vector store
 - **Temperature 0.2**: Ensures consistent, deterministic SQL generation
 - **MiniLM Embeddings**: Fast semantic ranking for few-shot selection
-- **Connection Pooling**: Handles 25+ concurrent database queries
+- **Connection Pooling**: Efficient database connection management
+
+---
+
+## ⚖️ Evaluation Methodology & Limitations
+
+To address referencing of performance metrics:
+
+1.  **Measurement Method**: The metrics cited in early versions (91.2% accuracy) were derived from `evaluate_metrics.py`, which uses a **simulated/heuristic evaluation** on **10 specific queries**. It does not represent a result on a standard benchmark like Spider or WikiSQL.
+2.  **Complexity Handling**: The test set includes specific examples of JOINs and Aggregations, but successes are judged based on heuristic string matching or binary execution success in a controlled environment.
+3.  **Ambiguity Handling**: The system currently handles ambiguous questions by relying on the semantic similarity selector to find the closest few-shot example. There is no explicit "clarification question" loop implemented yet.
+
+This project is a Proof of Concept (PoC) for RAG-based Text-to-SQL systems.
 
 ---
 
@@ -156,7 +155,7 @@ Ask questions about your e-commerce database in natural language:
 
 ## 📝 License & Contact
 
-Built by **[Pawan Kumar]** | [GitHub](https://github.com/zer-art)
+Built by **[Pawan Parida]** | [GitHub](https://github.com/zer-art)
 
 Contributions welcome! Pull requests and issues appreciated.
 
